@@ -53,31 +53,31 @@ describe("Recipes", function() {
   });
 
 
-  it("should update RECIPE items on PUT", function() {
-    const updateData = {
-      "name": "pizza2",
-      "ingredients": ['better sauce', 'better cheese', 'better bread']
-    };
+  // it("should update RECIPE items on PUT", function() {
+  //   const updateData = {
+  //     "name": "pizza2",
+  //     "ingredients": ['better sauce', 'better cheese', 'better bread']
+  //   };
 
-    return (
-      chai
-        .request(app)
-        .get("/recipes")
-        .then(function(res) {
-          updateData.id = res.body[0].id;
-          return chai
-            .request(app)
-            .put(`/recipes/${updateData.id}`)
-            .send(updateData);
-        })
-        .then(function(res) {
-          expect(res).to.have.status(204);
-          expect(res).to.be.json;
-          expect(res.body).to.be.a("object");
-          expect(res.body).to.deep.equal(updateData);
-        })
-    );
-  });
+  //   return (
+  //     chai
+  //       .request(app)
+  //       .get("/recipes")
+  //       .then(function(res) {
+  //         updateData.id = res.body[0].id;
+  //         return chai
+  //           .request(app)
+  //           .put(`/recipes/${updateData.id}`)
+  //           .send(updateData);
+  //       })
+  //       .then(function(res) {
+  //         expect(res).to.have.status(204);
+  //         expect(res).to.be.json;
+  //         expect(res.body).to.be.a("object");
+  //         expect(res.body).to.deep.equal(updateData);
+  //       })
+  //   );
+  // });
 
 
   it("should delete RECIPE items on DELETE", function() {
